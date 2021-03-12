@@ -1,0 +1,18 @@
+.item {
+  display: flex;
+  align-items: center;
+}
+.btn_delete {
+  width: 100px;
+
+  margin: 10px 0;
+  background-color: rgb(168, 157, 235);
+  border: solid 1px black;
+  border-radius: 4px;
+  font-size: 20px;
+}
+.btn_delete:hover,
+.btn_delete:focus {
+  cursor: pointer;
+  background-color: rgb(245, 94, 177);
+}

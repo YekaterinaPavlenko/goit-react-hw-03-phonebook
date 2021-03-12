@@ -1,0 +1,13 @@
+ul {
+  list-style: disc;
+}
+p {
+  margin: 5px;
+}
+.list {
+  width: 80%;
+  margin: auto;
+  padding: 5px;
+  list-style: disc;
+  font-size: 20px;
+}
