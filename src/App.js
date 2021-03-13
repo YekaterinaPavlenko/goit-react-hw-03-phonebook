@@ -23,21 +23,21 @@ class App extends Component {
       (contact) => contact.number.toLowerCase() === data.number.toLowerCase()
     );
     let existContact = (existName && "name") || (existNumber && "number");
-    console.log(existContact);
+    // console.log(existContact);
 
     existName || existNumber
       ? alert(`The ${existContact} is already in contacts.`)
       : this.setState((prevState) => ({
-          contacts: [...prevState.contacts, data],
+          contacts: [data, ...prevState.contacts],
         }));
   };
 
   addFilterValue = (e) => {
     this.setState({ filter: e.currentTarget.value });
-    console.log(this.filter);
   };
   getVisibleContacts = () => {
     const { filter, contacts } = this.state;
+    // console.log(filter);
     const normalizedFilter = filter.toLowerCase();
 
     return contacts.filter((contact) =>
