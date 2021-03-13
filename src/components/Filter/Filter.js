@@ -1,6 +1,6 @@
 import React from "react";
 import fs from "./Filter.module.css";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 const Filter = ({ value, changeFilter }) => {
   // console.log(value);
   return (
@@ -17,5 +17,9 @@ const Filter = ({ value, changeFilter }) => {
       </label>
     </div>
   );
+};
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 export default Filter;

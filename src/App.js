@@ -6,10 +6,10 @@ import Filter from "./components/Filter/Filter";
 class App extends Component {
   state = {
     contacts: [
-      { id: "id-1", name: "Rosie Simpson", number: "+38-097-459-12-56" },
-      { id: "id-2", name: "Hermione Kline", number: "+38-066-443-89-12" },
-      { id: "id-3", name: "Eden Clements", number: "+38-067-645-17-79" },
-      { id: "id-4", name: "Annie Copeland", number: "+38-099-227-91-26" },
+      // { id: "id-1", name: "Rosie Simpson", number: "+38-097-459-12-56" },
+      // { id: "id-2", name: "Hermione Kline", number: "+38-066-443-89-12" },
+      // { id: "id-3", name: "Eden Clements", number: "+38-067-645-17-79" },
+      // { id: "id-4", name: "Annie Copeland", number: "+38-099-227-91-26" },
     ],
     filter: "",
   };
@@ -50,6 +50,25 @@ class App extends Component {
       contacts: contacts.filter((contact) => contact.id !== id),
     });
   };
+  componentDidMount() {
+    // console.log("я родился");
+    const contactsFromLS = JSON.parse(localStorage.getItem("contacts"));
+    // console.log(contactsFromLS);
+    if (contactsFromLS) {
+      this.setState(() => ({ contacts: [...contactsFromLS] }));
+      return;
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    // console.log("я обновился");
+    // console.log(prevProps);
+    // console.log(prevState);
+    const { contacts } = this.state;
+    if (contacts !== prevState.contacts) {
+      // console.log(contacts);
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+    }
+  }
 
   render() {
     const { filter } = this.state;

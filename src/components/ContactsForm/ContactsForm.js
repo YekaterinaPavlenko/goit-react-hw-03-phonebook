@@ -10,21 +10,22 @@ class ContactForm extends Component {
     number: "",
   };
 
-  // phoneId = uuidv4();
-
   handleChange = (e) => {
     const { name, value } = e.currentTarget;
     // console.log(e.currentTarget.value);
     this.setState({ [name]: value });
   };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit({ id: uuidv4(), ...this.state });
     this.reset();
   };
+
   reset = () => {
     this.setState({ name: "", number: "" });
   };
+
   render() {
     const { name, number } = this.state;
     return (
@@ -45,7 +46,7 @@ class ContactForm extends Component {
         <label className={cfs.label}>
           Number
           <input
-            type="phone"
+            type="tel"
             className={cfs.input}
             pattern="^[\+?\0-9\-_]+$"
             required
