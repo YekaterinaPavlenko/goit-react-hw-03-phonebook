@@ -65,10 +65,3 @@ class ContactForm extends Component {
 ContactForm.propTypes = { onSubmit: PropTypes.func };
 
 export default ContactForm;
-
-// В App.js.
-
-// render() {
-
-// ....
-// }
