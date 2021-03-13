@@ -44,18 +44,12 @@ class App extends Component {
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
-  deleteContact = (id) => {
+  onDeleteContact = (id) => {
     const { contacts } = this.state;
     this.setState({
       contacts: contacts.filter((contact) => contact.id !== id),
     });
   };
-  // onRemoveContact = (id) => {
-  //   const { contacts } = this.state;
-  //   this.setState({
-  //     contacts: contacts.filter((contact) => contact.id !== id),
-  //   });
-  // };
 
   render() {
     const { filter } = this.state;
@@ -69,7 +63,7 @@ class App extends Component {
         <Filter value={filter} changeFilter={this.addFilterValue} />
         <ContactList
           contacts={visibleContacts}
-          deleteContact={this.deleteContact}
+          deleteContact={this.onDeleteContact}
         />
       </div>
     );
